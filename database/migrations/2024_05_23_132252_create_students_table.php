@@ -16,10 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('birthDate');
-            $table->foreign('course_id')
-                    ->references('course_id')
-                    ->on('course')
-                    ->onDelete('cascade');
+            $table->unsignedBigInteger('course_id');
+            $table->foreign('course_id')->references('course_id')->on('course')->onDelete('cascade');
             $table->timestamps();
         });
     }
